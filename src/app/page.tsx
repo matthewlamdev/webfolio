@@ -19,7 +19,7 @@ export default function Home() {
             DevOps Portfolio
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            Exploring innovative infrastructure solutions and deployment strategies
+            Exploring innovative infrastructure solutions and deployment strategies.
           </p>
         </div>
       </section>
