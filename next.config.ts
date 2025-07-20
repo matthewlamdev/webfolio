@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
+import path from "path";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  outputFileTracingRoot: path.join(__dirname, '../../'),
+  experimental: {
+  }
+}
 
-export default nextConfig;
+module.exports = nextConfig
+// export default nextConfig;
