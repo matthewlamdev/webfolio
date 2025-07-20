@@ -23,7 +23,9 @@ jobs:
       
       - name: Create deployment package
         run: |
-          tar -czf webfolio-deployment.tar.gz .next package.json package-lock.json public
+          # Include node_modules in the package to avoid installing on Pi
+          npm ci --omit=dev
+          tar -czf webfolio-deployment.tar.gz .next package.json node_modules public
       
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -42,7 +44,6 @@ jobs:
       
       - name: Extract and deploy webfolio-app
         run: |
-          rm -rf .next
+          rm -rf .next node_modules
           tar -xzf webfolio-deployment.tar.gz
-          npm ci --only=production
           pm2 restart webfolio-app
