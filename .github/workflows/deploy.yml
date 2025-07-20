@@ -44,6 +44,8 @@ jobs:
       
       - name: Extract and deploy webfolio-app
         run: |
+          # Deploy to the directory where PM2 is actually running the app
+          cd /home/mallama/Desktop/webfolio
           rm -rf .next node_modules
-          tar -xzf webfolio-deployment.tar.gz
+          tar -xzf $GITHUB_WORKSPACE/webfolio-deployment.tar.gz
           pm2 restart webfolio-app
