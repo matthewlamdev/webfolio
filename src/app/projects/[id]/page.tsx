@@ -4,14 +4,9 @@ import Link from 'next/link'
 import { projects } from '@/data/projects'
 import { notFound } from 'next/navigation'
 
-interface Props {
-  params: {
-    id: string
-  }
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = projects.find((p) => p.id === params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
   
   if (!project) {
     return {
@@ -25,11 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProjectPage({ params }: Props) {
-  const project = projects.find((p) => p.id === params.id)
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -127,5 +123,5 @@ export default function ProjectPage({ params }: Props) {
         </div>
       </div>
     </main>
-  )
+  );
 } 
