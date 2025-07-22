@@ -176,11 +176,19 @@ const Hero = () => {
 
           {/* Name with gradient animation */}
           <h1 className="text-5xl font-bold mb-4">
-            <span
+          <span
               className="animate-gradient bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-300% bg-clip-text text-transparent 
                            hover:animate-gradient-fast cursor-pointer transition-all duration-300 hover:scale-105"
-            >
-              Matthew Lam
+              onClick={() => {
+                const el = document.getElementById('devops-portfolio');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="Scroll to DevOps Portfolio section"
+            >Matthew Lam
             </span>
             <span className="ml-4 inline-flex items-center">
               <Sparkles className="w-8 h-8 text-blue-400 animate-sparkle" />
