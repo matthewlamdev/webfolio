@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import Hero from './Hero';
 
 describe('Hero', () => {
@@ -9,8 +9,12 @@ describe('Hero', () => {
 
   it('renders the tagline typewriter', async () => {
     render(<Hero />);
-    const typewriter = await screen.findByTestId('typewriter-text', {}, { timeout: 20000 });
-    console.log('Typewriter text:', typewriter.textContent);
-    expect(typewriter.textContent).toMatch(/Mobile|Crafting|Native/);
-  }, 25000);
+    const typewriter = await screen.findByTestId('typewriter-text', {}, { timeout: 12000 });
+    await waitFor(
+      () => {
+        expect(typewriter.textContent).toMatch(/Mobile|Crafting|Native/);
+      },
+      { timeout: 12000 }
+    );
+  }, 15000);
 }); 
