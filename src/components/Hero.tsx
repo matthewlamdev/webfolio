@@ -188,7 +188,8 @@ const Hero = () => {
               tabIndex={0}
               role="button"
               aria-label="Scroll to DevOps Portfolio section"
-            >Matthew Lam
+            >
+            Matthew Lam
             </span>
             <span className="ml-4 inline-flex items-center">
               <Sparkles className="w-8 h-8 text-blue-400 animate-sparkle" />
