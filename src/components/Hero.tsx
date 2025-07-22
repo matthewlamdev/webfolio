@@ -34,7 +34,7 @@ const TypeWriter = ({ words }: { words: string[] }) => {
   }, [currentText, isDeleting, currentWordIndex, words]);
 
   return (
-    <span className="min-h-[2rem] inline-block">
+    <span data-testid="typewriter-text" className="min-h-[2rem] inline-block">
       {currentText}
       <span className="ml-1 animate-cursor">|</span>
     </span>
@@ -176,7 +176,7 @@ const Hero = () => {
 
           {/* Name with gradient animation */}
           <h1 className="text-5xl font-bold mb-4">
-            <span
+          <span
               className="animate-gradient bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-300% bg-clip-text text-transparent 
                            hover:animate-gradient-fast cursor-pointer transition-all duration-300 hover:scale-105"
               onClick={() => {
@@ -189,7 +189,7 @@ const Hero = () => {
               role="button"
               aria-label="Scroll to DevOps Portfolio section"
             >
-              Matthew Lam
+            Matthew Lam
             </span>
             <span className="ml-4 inline-flex items-center">
               <Sparkles className="w-8 h-8 text-blue-400 animate-sparkle" />
