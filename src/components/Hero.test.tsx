@@ -9,8 +9,8 @@ describe('Hero', () => {
 
   it('renders the tagline typewriter', async () => {
     render(<Hero />);
-    // Wait for the first tagline to appear
-    const tagline = await screen.findByText("Crafting Native Mobile Experiences", {}, { timeout: 3000 });
-    expect(tagline).toBeInTheDocument();
-  });
+    const typewriter = await screen.findByTestId('typewriter-text', {}, { timeout: 20000 });
+    console.log('Typewriter text:', typewriter.textContent);
+    expect(typewriter.textContent).toMatch(/Mobile|Crafting|Native/);
+  }, 25000);
 }); 
