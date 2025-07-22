@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Code2, Sparkles } from "lucide-react";
 
-const TypeWriter = ({ words }) => {
+const TypeWriter = ({ words }: { words: string[] }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -14,20 +14,15 @@ const TypeWriter = ({ words }) => {
     const timer = setTimeout(
       () => {
         if (!isDeleting) {
-          // Typing speed gets slightly faster towards the end of the word
-          // const speed = 80 - Math.min(40, currentText.length * 2);
           setCurrentText(word.substring(0, currentText.length + 1));
           if (currentText.length === word.length) {
-            // Wait longer at the end of the word
             setTimeout(() => setIsDeleting(true), 2000);
           }
         } else {
-          // Deleting is faster than typing
           setCurrentText(word.substring(0, currentText.length - 1));
           if (currentText === "") {
             setIsDeleting(false);
             setCurrentWordIndex((current) => (current + 1) % words.length);
-            // Pause before starting the next word
             return;
           }
         }
@@ -213,4 +208,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero; 
