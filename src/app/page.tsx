@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import ProjectCard from '@/components/ProjectCard'
 import Hero from '@/components/Hero'
 import { projects } from '@/data/projects'
+import GrafanaDashboard from '@/components/Grafana'
 
 export const metadata: Metadata = {
   title: 'DevOps Portfolio',
@@ -13,6 +14,10 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       <Hero />
       {/* Hero Section */}
+
+      {/* Grafana Dashboard Section */}
+      <GrafanaDashboard />
+
       <section className="container mx-auto px-4 pt-[1px] pb-10" id="devops-portfolio">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
