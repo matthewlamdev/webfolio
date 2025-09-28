@@ -104,5 +104,34 @@ export const projects: Project[] = [
         'Designed custom Grafana dashboards'
       ]
     }
+  },
+  {
+    id: 'AI-Model-Generator',
+    title: 'AI Model Generator',
+    description: 'Automated Kubernetes cluster deployment and management system with monitoring and scaling capabilities.',
+    image: '/images/kubernetes.png',
+    technologies: [
+      { name: 'Kubernetes', icon: 'kubernetes' },
+      { name: 'Terraform', icon: 'terraform' },
+      { name: 'Prometheus', icon: 'prometheus' },
+      { name: 'Grafana', icon: 'grafana' }
+    ],
+    status: 'active',
+    githubUrl: 'https://github.com/yourusername/kubernetes-cluster',
+    liveUrl: 'https://cluster-demo.example.com',
+    details: {
+      architecture: 'Multi-node Kubernetes cluster with high availability setup',
+      deployment: 'Automated deployment using Terraform and Ansible',
+      challenges: [
+        'Managing cluster scaling and resource allocation',
+        'Implementing secure service mesh',
+        'Setting up automated monitoring and alerting'
+      ],
+      solutions: [
+        'Implemented horizontal pod autoscaling',
+        'Deployed Istio for service mesh',
+        'Integrated Prometheus and Grafana for monitoring'
+      ]
+    }
   }
 ]; 
