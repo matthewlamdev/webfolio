@@ -30,11 +30,11 @@ jobs:
           npm ci --omit=dev
           tar -czf webfolio-deployment.tar.gz .next package.json node_modules public
       
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: webfolio-build
-          path: webfolio-deployment.tar.gz
+      # - name: Upload build artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: webfolio-build
+      #     path: webfolio-deployment.tar.gz
 
   deploy:
     needs: build
