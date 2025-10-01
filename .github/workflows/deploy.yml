@@ -26,29 +26,45 @@ jobs:
       
       - name: Create deployment package
         run: |
-          # Include node_modules in the package to avoid installing on Pi
           npm ci --omit=dev
           tar -czf webfolio-deployment.tar.gz .next package.json node_modules public
-      
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+
+      # Authenticate with Google Cloud using service account key from secrets
+      - id: auth
+        uses: google-github-actions/auth@v2
         with:
-          name: webfolio-build
-          path: webfolio-deployment.tar.gz
-          retention-days: 7
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Upload build artifact to GCS
+        run: |
+          gsutil cp webfolio-deployment.tar.gz gs://${{ secrets.GCP_BUCKET }}/webfolio/${{ github.sha }}/webfolio-deployment.tar.gz
 
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      # Authenticate with Google Cloud
+      - id: auth
+        uses: google-github-actions/auth@v2
         with:
-          name: webfolio-build
-      
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Download build artifact from GCS
+        run: |
+          gsutil cp gs://${{ secrets.GCP_BUCKET }}/webfolio/${{ github.sha }}/webfolio-deployment.tar.gz ./webfolio-deployment.tar.gz
+
       - name: Extract and deploy webfolio-app
         run: |
-          # Deploy to the directory where PM2 is actually running the app
           cd /home/mallama/Desktop/webfolio
           rm -rf .next node_modules
           tar -xzf $GITHUB_WORKSPACE/webfolio-deployment.tar.gz
