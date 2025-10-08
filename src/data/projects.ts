@@ -109,18 +109,19 @@ export const projects: Project[] = [
     id: 'AI-Model-Generator',
     title: 'AI Model Generator',
     description: 'Automated Kubernetes cluster deployment and management system with monitoring and scaling capabilities.',
-    image: '/images/kubernetes.png',
+    image: '/images/model.png',
     technologies: [
-      { name: 'Kubernetes', icon: 'kubernetes' },
-      { name: 'Terraform', icon: 'terraform' },
-      { name: 'Prometheus', icon: 'prometheus' },
-      { name: 'Grafana', icon: 'grafana' }
+      { name: 'Next.js', icon: 'Next.js' },
+      { name: 'Python', icon: 'Python' },
+      { name: 'Redis', icon: 'Redis' },
+      { name: 'RabbitMQ', icon: 'RabbitMQ' },
+      { name: 'Containerization', icon: 'Containerization' }
     ],
     status: 'active',
-    githubUrl: 'https://github.com/yourusername/kubernetes-cluster',
-    liveUrl: 'https://cluster-demo.example.com',
+    githubUrl: 'https://github.com/chowzler/modelAI',
+    liveUrl: 'https://model.mallama.site',
     details: {
-      architecture: 'Multi-node Kubernetes cluster with high availability setup',
+      architecture: 'Microservices: decoupled Next.js frontend & Flask backend',
       deployment: 'Automated deployment using Terraform and Ansible',
       challenges: [
         'Managing cluster scaling and resource allocation',
