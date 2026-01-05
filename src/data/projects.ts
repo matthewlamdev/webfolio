@@ -20,6 +20,42 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'backstage-platform-engineer',
+    title: 'Backstage Developer Portal',
+    description: 'Internal developer portal built on Backstage, deployed via Helm to Kubernetes with GitOps workflows using ArgoCD and CI/CD automation through GitHub Actions.',
+    image: '/images/backstage.png',
+    technologies: [
+      { name: 'Kubernetes', icon: 'kubernetes' },
+      { name: 'Helm', icon: 'helm' },
+      { name: 'ArgoCD', icon: 'argocd' },
+      { name: 'GitHub Actions', icon: 'github-actions' },
+      { name: 'Docker', icon: 'docker' },
+      { name: 'PostgreSQL', icon: 'postgresql' }
+    ],
+    status: 'active',
+    githubUrl: 'https://github.com/matthew-lam-dev/backstage',
+    liveUrl: 'https://backstage.mallama.site',
+    details: {
+      architecture: 'Microservices-based Backstage deployment with Helm charts, ArgoCD GitOps synchronization, and GitHub Actions CI/CD pipeline',
+      deployment: 'Helm-based deployment to Kubernetes cluster with automated GitOps workflows via ArgoCD',
+      challenges: [
+        'Managing complex Helm chart dependencies and values configuration',
+        'Setting up proper ArgoCD application sync policies and health checks',
+        'Implementing secure secret management for Backstage configuration',
+        'Creating efficient GitHub Actions workflows for automated testing and deployment',
+        'Ensuring proper rollback mechanisms in case of deployment failures'
+      ],
+      solutions: [
+        'Created modular Helm charts with environment-specific value overrides',
+        'Implemented ArgoCD App of Apps pattern for managing multiple Backstage components',
+        'Integrated External Secrets Operator with AWS Secrets Manager for secure configuration',
+        'Built reusable GitHub Actions workflows for linting, testing, and security scanning',
+        'Configured ArgoCD automated sync waves and health assessments for reliable deployments',
+        'Set up pre-sync hooks for database migrations and post-sync hooks for service validation'
+      ]
+    }
+  },
+  {
     id: 'kubernetes-cluster',
     title: 'Kubernetes Cluster Management',
     description: 'Automated Kubernetes cluster deployment and management system with monitoring and scaling capabilities.',
