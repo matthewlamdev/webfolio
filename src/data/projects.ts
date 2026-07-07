@@ -34,7 +34,7 @@ export const projects: Project[] = [
     ],
     status: 'active',
     githubUrl: 'https://github.com/matthew-lam-dev/backstage',
-    liveUrl: 'https://backstage.mallama.site',
+    liveUrl: 'https://backstage.mattlam.site',
     details: {
       architecture: 'Microservices-based Backstage deployment with Helm charts, ArgoCD GitOps synchronization, and GitHub Actions CI/CD pipeline',
       deployment: 'Helm-based deployment to Kubernetes cluster with automated GitOps workflows via ArgoCD',
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     ],
     status: 'active',
     githubUrl: 'https://github.com/chowzler/modelAI',
-    liveUrl: 'https://model.mallama.site',
+    liveUrl: 'https://model.mattlam.site',
     details: {
       architecture: 'Microservices: decoupled Next.js frontend & Flask backend',
       deployment: 'Automated deployment using Terraform and Ansible',

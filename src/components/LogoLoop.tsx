@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import Image from 'next/image';
 
 export type LogoItem =
   | {
@@ -213,15 +214,11 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
-  }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical]);
+  }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical, trackRef]);
 };
 
 const isNodeItem = (item: LogoItem): item is NodeItem => {
   return 'node' in item;
-};
-
-const isImageItem = (item: LogoItem): item is ImageItem => {
-  return 'src' in item;
 };
 
 export const LogoLoop = React.memo<LogoLoopProps>(
@@ -371,7 +368,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             {item.node}
           </span>
         ) : (
-          <img
+          <Image
             className={cx(
               'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
               '[-webkit-user-drag:none] pointer-events-none',
@@ -381,14 +378,11 @@ export const LogoLoop = React.memo<LogoLoopProps>(
                 'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
             )}
             src={item.src}
-            srcSet={item.srcSet}
-            sizes={item.sizes}
-            width={item.width}
-            height={item.height}
             alt={item.alt ?? ''}
             title={item.title}
+            width={item.width || 100}
+            height={item.height || 50}
             loading="lazy"
-            decoding="async"
             draggable={false}
           />
         );
