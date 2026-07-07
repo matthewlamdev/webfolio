@@ -46,16 +46,16 @@ interface NodeItem {
   ariaLabel?: string;
 }
 
-interface ImageItem {
-  src: string;
-  alt?: string;
-  href?: string;
-  title?: string;
-  srcSet?: string;
-  sizes?: string;
-  width?: number;
-  height?: number;
-}
+// interface ImageItem {
+//   src: string;
+//   alt?: string;
+//   href?: string;
+//   title?: string;
+//   srcSet?: string;
+//   sizes?: string;
+//   width?: number;
+//   height?: number;
+// }
 
 const ANIMATION_CONFIG = {
   SMOOTH_TAU: 0.25,
