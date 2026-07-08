@@ -12,7 +12,7 @@ describe('Hero', () => {
     const typewriter = await screen.findByTestId('typewriter-text', {}, { timeout: 12000 });
     await waitFor(
       () => {
-        expect(typewriter.textContent).toMatch(/Mobile|Crafting|Native/);
+        expect(typewriter.textContent).toMatch(/production|automation|DevOps-first/);
       },
       { timeout: 12000 }
     );
