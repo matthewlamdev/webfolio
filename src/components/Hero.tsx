@@ -110,14 +110,14 @@ const CodeSnippets = () => (
 
 const Hero = () => {
   const taglines = [
-    "Crafting Native Mobile Experiences",
-    "Mobile Apps with Native Performance",
-    "Native Mobile Development Artist",
-    "Creating Mobile Excellence",
-    "Building Apps People Love",
-    "Mobile-First Developer",
-    "From Vision to App Store",
-    "Native Apps, Seamless Experiences",
+    "Shipping code to production, daily",
+    "Infrastructure as code, performance as standard",
+    "Pipeline automation artist",
+    "Creating deployment excellence",
+    "Building systems people rely on",
+    "DevOps-first developer",
+    "From commit to cloud, automated",
+    "Observable systems, seamless rollouts",
   ];
 
   return (
